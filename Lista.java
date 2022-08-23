@@ -34,10 +34,9 @@ public class Lista {
         }
     }
 
-    public int removerFinal(){
+    public int removerFinal() throws estruturaVaziaException{
         if(listaVazia()){
-            System.out.println("Estrutura Vazia");
-            return 0;
+            throw new estruturaVaziaException();
         }
         else{
             int indice = this.numeroElementos - 1;
@@ -60,10 +59,9 @@ public class Lista {
         }
     }
 
-    public int removerInicio(){
+    public int removerInicio() throws estruturaVaziaException{
         if(listaVazia()){
-            System.out.println("Estrutura Vaiza");
-            return -1;
+            throw new estruturaVaziaException();
         }
         else{
             int elementoRemovido = vetorElementos[0];
@@ -96,10 +94,9 @@ public class Lista {
         }
     }
 
-    public int removerNaPosicao(int posicao){
+    public int removerNaPosicao(int posicao) throws estruturaVaziaException{
         if(listaVazia()){
-            System.out.println("Estrutura Vazia");
-            return -1;
+            throw new estruturaVaziaException();
         }
         else{
             if(posicao<=0){
@@ -118,6 +115,20 @@ public class Lista {
             }
         }
     }
+
+    public void printarLista() throws estruturaVaziaException{
+        for(int indice=0;indice<this.numeroElementos;indice++){
+            int elemento;
+            elemento = this.removerInicio();
+            this.adicionarFinal(elemento);
+            System.out.println(elemento);
+        }
+        
+
+    }
+
+
+
     public void mostrarLista(){
         for(int i=0;i<this.numeroElementos;i++){
             System.out.println(vetorElementos[i]);
