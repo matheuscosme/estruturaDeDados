@@ -8,7 +8,7 @@ public class Main {
         lista.adicionarInicio(1);
         lista.printarLista();
         System.out.println();
-        lista.inverterLista();
+        lista.removerRepetidos();
         lista.printarLista();
 
     }

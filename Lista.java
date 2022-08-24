@@ -146,6 +146,7 @@ public class Lista {
         return elemento;   
     }
 
+
     public void inverterLista() throws estruturaVaziaException{
         int num;
         int aux = this.numeroElementos-1;
@@ -160,10 +161,17 @@ public class Lista {
     }
 
 
-
-    public void mostrarLista(){
-        for(int i=0;i<this.numeroElementos;i++){
-            System.out.println(vetorElementos[i]);
+    public void removerRepetidos() throws estruturaVaziaException{
+        int num;
+        for(int indice=0;indice<=this.numeroElementos-1;indice++){
+            num = get(indice);
+            for(int j=indice+1;j<=this.numeroElementos-1;j++){
+                if(num == get(j)){
+                    this.removerNaPosicao(j);
+                }
+            }
         }
     }
+
+
 }
