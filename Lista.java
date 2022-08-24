@@ -108,7 +108,7 @@ public class Lista {
             else{
                 int elementoRemovido = this.vetorElementos[posicao];
                 for(int indice=posicao;indice<(this.numeroElementos-1);indice++){
-                    this.vetorElementos[indice] = this.vetorElementos[indice-1];
+                    this.vetorElementos[indice] = this.vetorElementos[indice+1];
                 }
                 this.numeroElementos--;
                 return elementoRemovido;
@@ -123,9 +123,43 @@ public class Lista {
             this.adicionarFinal(elemento);
             System.out.println(elemento);
         }
-        
-
     }
+
+
+    public int retornarCentral() throws estruturaVaziaException{
+        int posicaoCentral = (this.numeroElementos - 1)/2;
+        int elementoCentral = this.removerNaPosicao(posicaoCentral);
+        this.adicionarNaPosicao(elementoCentral, posicaoCentral);
+        return elementoCentral;
+    }
+
+    public void trocarPrimeiroComUltimo() throws estruturaVaziaException{
+        int primeiro = this.removerInicio();
+        int ultimo = this.removerFinal();
+        this.adicionarInicio(ultimo);
+        this.adicionarFinal(primeiro);
+    }
+
+    public int get(int posicao) throws estruturaVaziaException{
+        int elemento = this.removerNaPosicao(posicao);
+        this.adicionarNaPosicao(elemento, posicao);
+        return elemento;   
+    }
+
+    public void inverterLista() throws estruturaVaziaException{
+        int num;
+        int aux = this.numeroElementos-1;
+        int posicaoFinal = this.numeroElementos-1;
+        for(int indice=0; indice<posicaoFinal;indice++){
+            for(int j=0; j<aux;j++){
+                num = this.removerNaPosicao(j);
+                this.adicionarNaPosicao(num, j+1);
+            }
+            aux--;
+        }
+    }
+
+
 
     public void mostrarLista(){
         for(int i=0;i<this.numeroElementos;i++){
