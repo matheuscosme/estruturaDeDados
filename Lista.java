@@ -64,8 +64,8 @@ public class Lista {
             throw new estruturaVaziaException();
         }
         else{
-            int elementoRemovido = vetorElementos[0];
-            for(int indice=1;indice<(this.numeroElementos-1);indice++){
+            int elementoRemovido = this.vetorElementos[0];
+            for(int indice=1;indice<=(this.numeroElementos-1);indice++){
                 this.vetorElementos[indice-1] = this.vetorElementos[indice];
             }
             this.numeroElementos--;
@@ -126,8 +126,6 @@ public class Lista {
         
 
     }
-
-
 
     public void mostrarLista(){
         for(int i=0;i<this.numeroElementos;i++){
