@@ -148,15 +148,20 @@ public class Lista {
 
 
     public void inverterLista() throws estruturaVaziaException{
-        int num;
-        int aux = this.numeroElementos-1;
-        int posicaoFinal = this.numeroElementos-1;
-        for(int indice=0; indice<posicaoFinal;indice++){
-            for(int j=0; j<aux;j++){
-                num = this.removerNaPosicao(j);
-                this.adicionarNaPosicao(num, j+1);
-            }
-            aux--;
+//         int num;
+//         int aux = this.numeroElementos-1;
+//         int posicaoFinal = this.numeroElementos-1;
+//         for(int indice=0; indice<posicaoFinal;indice++){
+//             for(int j=0; j<aux;j++){
+//                 num = this.removerNaPosicao(j);
+//                 this.adicionarNaPosicao(num, j+1);
+//             }
+//             aux--;
+//         }
+        int aux;
+        for (int cont = 0; cont<=this.numeroElementos-1;cont++){
+            aux = this.removerFinal();
+            this.adicionarNaPosicao(aux,cont);
         }
     }
 
