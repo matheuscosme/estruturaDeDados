@@ -148,16 +148,6 @@ public class Lista {
 
 
     public void inverterLista() throws estruturaVaziaException{
-//         int num;
-//         int aux = this.numeroElementos-1;
-//         int posicaoFinal = this.numeroElementos-1;
-//         for(int indice=0; indice<posicaoFinal;indice++){
-//             for(int j=0; j<aux;j++){
-//                 num = this.removerNaPosicao(j);
-//                 this.adicionarNaPosicao(num, j+1);
-//             }
-//             aux--;
-//         }
         int aux;
         for (int cont = 0; cont<=this.numeroElementos-1;cont++){
             aux = this.removerFinal();
@@ -168,9 +158,9 @@ public class Lista {
 
     public void removerRepetidos() throws estruturaVaziaException{
         int num;
-        for(int indice=0;indice<=this.numeroElementos-1;indice++){
+        for(int indice=this.numeroElementos-1;indice>=0;indice--){
             num = get(indice);
-            for(int j=indice+1;j<=this.numeroElementos-1;j++){
+            for(int j=indice-1;j>=0;j--){
                 if(num == get(j)){
                     this.removerNaPosicao(j);
                 }
