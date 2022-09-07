@@ -158,15 +158,19 @@ public class Lista {
 
     public void removerRepetidos() throws estruturaVaziaException{
         int num;
-        for(int indice=this.numeroElementos-1;indice>=0;indice--){
+        int indice = this.numeroElementos - 1;
+        while (indice>0){
             num = get(indice);
             for(int j=indice-1;j>=0;j--){
                 if(num == get(j)){
                     this.removerNaPosicao(j);
+                    indice--;
                 }
             }
+            indice--;
         }
     }
 
 
+    
 }
